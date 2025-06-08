@@ -1,0 +1,23 @@
+# MCP Server Configuration
+
+# Server settings
+host: localhost
+port: 8080
+
+# Security settings
+secret_key: "your-secret-key-here"  # Change this in production!
+token_expire_minutes: 30
+
+# Plugin settings
+plugins_dir: "plugins"
+enabled_plugins:
+  - system_info
+  # Add more plugins here as they are created
+
+# Logging settings
+log_level: INFO
+log_file: "logs/mcp.log"
+
+# API settings
+api_prefix: "/api"
+rate_limit: 100 
