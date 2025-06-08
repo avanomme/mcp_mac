@@ -1,4 +1,5 @@
-from pydantic import BaseSettings, Field
+from pydantic_settings import BaseSettings, SettingsConfigDict
+from pydantic import Field
 from typing import List, Optional
 import os
 from pathlib import Path
@@ -26,9 +27,7 @@ class Settings(BaseSettings):
     api_prefix: str = Field(default="/api", env="MCP_API_PREFIX")
     rate_limit: int = Field(default=100, env="MCP_RATE_LIMIT")
     
-    class Config:
-        env_file = ".env"
-        case_sensitive = True
+    model_config = SettingsConfigDict(env_file=".env", case_sensitive=True)
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
